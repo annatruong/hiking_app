@@ -22,6 +22,26 @@ def get_rating(m_per_km):
     else:
         return "⚫️ Very Hard"
 
+def show_results(distance, ascent, average_gradient, average_climb, rating):
+    print("\n================ HIKE EVALUATION ================\n")
+    print(f"Distance: {distance} km")
+    print(f"Ascent: {ascent} m")
+    print(f"Average gradient: {average_gradient}%")
+    print(f"Average climb: {average_climb} m/km")
+    print(f"Difficulty: {rating}")
+    print("\n=================================================\n")
+
+def run_again():
+    while True:
+        resume = input("Do you want to calculate another hike? (y/n): ").lower()
+        print()
+        if resume == "n":
+            return False
+        elif resume == "y":
+            return True
+        else:
+            print("Incorrect value. Please enter 'y' if you wish to continue or 'n' if you would like to quit.\n")
+
 def main():
 
     print(r"""
@@ -33,22 +53,23 @@ def main():
      Gradient • Climb • Difficulty Rating
         How steep is your adventure?
     """)
-    # Get ascent and distance from user
-    ascent = int(input("Enter the total ascent(m): "))
-    distance = float(input("Enter the total distance(km): "))
 
-    # Calculate average gradient and average climb
-    average_gradient = get_average_gradient_percentage(ascent, distance)
-    average_climb = get_average_climb(ascent, distance)
-    rating = get_rating(average_climb)
+    run = True
+    while run:
+        # Get ascent and distance from user
+        ascent = int(input("Enter the total ascent(m): "))
+        distance = float(input("Enter the total distance(km): "))
 
-    # Display results
-    print("\n================ HIKE EVALUATION ================\n")
-    print(f"Distance: {distance} km")
-    print(f"Ascent: {ascent} m")
-    print(f"Average gradient: {average_gradient}%")
-    print(f"Average climb: {average_climb} m/km")
-    print(f"Difficulty: {rating}")
-    print("\n=================================================\n")
+        # Calculate average gradient and average climb
+        average_gradient = get_average_gradient_percentage(ascent, distance)
+        average_climb = get_average_climb(ascent, distance)
+        rating = get_rating(average_climb)
+
+        # Display results
+        show_results(distance, ascent, average_gradient, average_climb, rating)
+
+        # Check if user wants to continue
+        run = run_again()
+        
 
 main()
