@@ -1,12 +1,36 @@
+# Get ascent from user
+def get_ascent():
+    while True:
+        try:
+            ascent = int(input("Enter the total ascent(m): "))
+            if ascent < 0:
+                raise ValueError()
+        except ValueError:
+            print("Incorrect value. Ascent must be a positive number.")
+        else:
+            return ascent
+
+# Get distance from user
+def get_distance():
+    while True:
+        try:
+            distance = float(input("Enter the total distance(km): "))
+            if distance <= 0:
+                raise ValueError()
+        except ValueError:
+            print("Incorrect value. Distance must be a postive number greater than 0.")
+        else:
+            return distance
+
 # Converts kilometres to metres
 def convert_km_to_m(kilometres):
     return kilometres * 1000
 # Calculates the average gradient using ascent and distance. Returns value in 1 decimal place
-def get_average_gradient_percentage(ascent, distance):
+def cal_average_gradient_percentage(ascent, distance):
     return round((ascent / convert_km_to_m(distance)) * 100, 1)
 
 # Calculates ascent per kilometre
-def get_average_climb(ascent, distance):
+def cal_average_climb(ascent, distance):
     return round(ascent / distance)
 
 # Get rating base of average climb (m/km)
@@ -22,6 +46,7 @@ def get_rating(m_per_km):
     else:
         return "⚫️ Very Hard"
 
+# Prints results to screen
 def show_results(distance, ascent, average_gradient, average_climb, rating):
     print("\n================ HIKE EVALUATION ================\n")
     print(f"Distance: {distance} km")
@@ -31,6 +56,7 @@ def show_results(distance, ascent, average_gradient, average_climb, rating):
     print(f"Difficulty: {rating}")
     print("\n=================================================\n")
 
+# Asks user if they want to run the application again
 def run_again():
     while True:
         resume = input("Do you want to calculate another hike? (y/n): ").lower()
@@ -54,22 +80,22 @@ def main():
         How steep is your adventure?
     """)
 
-    run = True
-    while run:
+    while True:
         # Get ascent and distance from user
-        ascent = int(input("Enter the total ascent(m): "))
-        distance = float(input("Enter the total distance(km): "))
+        ascent = get_ascent()
+        distance = get_distance()
 
         # Calculate average gradient and average climb
-        average_gradient = get_average_gradient_percentage(ascent, distance)
-        average_climb = get_average_climb(ascent, distance)
+        average_gradient = cal_average_gradient_percentage(ascent, distance)
+        average_climb = cal_average_climb(ascent, distance)
         rating = get_rating(average_climb)
 
         # Display results
         show_results(distance, ascent, average_gradient, average_climb, rating)
 
         # Check if user wants to continue
-        run = run_again()
+        if not run_again():
+            break
         
 
 main()
