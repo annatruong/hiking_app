@@ -21,3 +21,10 @@ def get_rating(m_per_km):
         return "🔴 Hard"
     else:
         return "⚫️ Very Hard"
+
+# Calculate average gradient, average climb and rating
+def get_hike_estimation(ascent, distance):
+    average_gradient = get_average_gradient_percentage(ascent, distance)
+    average_climb = get_average_climb(ascent, distance)
+    rating = get_rating(average_climb)
+    return {"average_gradient": average_gradient, "average_climb": average_climb, "rating": rating}
