@@ -1,11 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template
+from config import Config
+from forms import HikeForm
 
 app = Flask(__name__)
+app.config.from_object(Config)
 
-@app.route("/")
+@app.route("/", methods=["GET","POST"])
 def home():
-    return "<h1>🥾 HIKING APP 🥾</h1><br><p>Gradient • Climb • Difficulty Rating</p><br><p>How steep is your adventure?</p>"
+    form = HikeForm()
+    return render_template("index.html", form=form)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

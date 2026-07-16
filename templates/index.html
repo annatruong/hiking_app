@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Hike Calculator</title>
+  </head>
+  <body>
+    <h1>🥾 Hike Calculator 🥾</h1>
+    <h2>Gradient • Climb • Difficulty Rating</h2>
+    <h3>How steep is your adventure?</h3>
+
+    <form action="" method="post">
+      <p>
+        {{ form.ascent.label }}<br />
+        {{ form.ascent(size=10) }}
+      </p>
+      <p>
+        {{ form.distance.label }}<br />
+        {{ form.distance(size=10) }}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+  </body>
+</html>
