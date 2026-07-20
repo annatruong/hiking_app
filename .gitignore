@@ -6,3 +6,7 @@ env/
 
 .env
 .DS_Store
+
+# Node dependencies
+node_modules/
+

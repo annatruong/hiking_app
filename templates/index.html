@@ -1,35 +1,42 @@
 <!doctype html>
+<html lang="en">
 
-<html>
-  <head>
-    <title>Hike Calculator</title>
-  </head>
-  <body>
-    <h1>🥾 Hike Calculator 🥾</h1>
-    <h2>Gradient • Climb • Difficulty Rating</h2>
-    <h3>How steep is your adventure?</h3>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+  <title>Hike Calculator</title>
+</head>
 
-    <form action="" method="post">
-      {{ form.hidden_tag() }}
-      <p>
-        {{ form.ascent.label }}<br />
-        {{ form.ascent(size=10) }}
-      </p>
-      <p>
-        {{ form.distance.label }}<br />
-        {{ form.distance(size=10) }}
-      </p>
-      <p>{{ form.submit() }}</p>
-    </form>
+<body class="font-mono m-6 text-center">
+  <h1 class="text-6xl mb-6">Hike Calculator</h1>
+  <h2 class="text-xl mb-3">Gradient • Climb • Difficulty Rating</h2>
+  <h3 class="text-xl mb-9">How steep is your adventure?</h3>
 
-    {% if results %}
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="mb-4">
+      {{ form.ascent.label(class="block mb-1") }}
+      {{ form.ascent(size=10, class="border rounded-sm p-1") }}
+    </div>
+    <div class="mb-4">
+      {{ form.distance.label(class="block mb-1") }}
+      {{ form.distance(size=10, class="border rounded-sm p-1") }}
+    </div>
+    {{ form.submit(class="w-40 border-2 m-4 p-1 rounded-md text-sm hover:bg-emerald-700") }}
+  </form>
+
+  {% if results %}
+  <div class="mt-6">
     <p>
-      Distance: {{distance}} km<br />
-      Ascent: {{ascent}} m<br />
-      Average gradient: {{ results.average_gradient }}%<br />
-      Average climb: {{ results.average_climb }} m/km<br />
+      Distance: {{distance}} km<br>
+      Ascent: {{ascent}} m<br>
+      Average gradient: {{ results.average_gradient }}%<br>
+      Average climb: {{ results.average_climb }} m/km<br>
       Difficulty: {{ results.rating }}
     </p>
-    {% endif %}
-  </body>
+  </div>
+  {% endif %}
+</body>
+
 </html>
