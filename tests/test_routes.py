@@ -38,7 +38,6 @@ def test_results_shows(client):
 # The browser displays native validation messages,
 # but these are not part of the Flask response.
 # Therefore, test that invalid submissions do not produce results.
-
 def test_ascent_validation(client):
     response = client.post(
         "/",

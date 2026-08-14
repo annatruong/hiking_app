@@ -1,3 +1,6 @@
+# Debugging purposes
+print(f"Importing {__name__}")
+
 # Converts kilometres to metres
 def convert_km_to_m(kilometres):
     return kilometres * 1000
