@@ -10,3 +10,5 @@ env/
 # Node dependencies
 node_modules/
 
+gha-creds-*.json
+
