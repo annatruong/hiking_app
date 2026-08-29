@@ -1,3 +1,4 @@
+# Test if homepage loads correctly
 def test_homepage_loads(client):
     response = client.get("/")
     html = response.get_data(as_text=True)
@@ -8,6 +9,7 @@ def test_homepage_loads(client):
     assert "Distance" in html
     assert "Ascent" in html
 
+# Test if redirect shows results
 def test_results_redirects(client):
     response = client.post(
         "/",
