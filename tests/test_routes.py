@@ -1,4 +1,4 @@
-# Test if homepage loads correctly
+# Test if homepage loads
 def test_homepage_loads(client):
     response = client.get("/")
     html = response.get_data(as_text=True)
