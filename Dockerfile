@@ -1,5 +1,5 @@
 # Stage 1: Frontend Stage
-FROM node:alpine AS frontend
+FROM node:24 AS frontend
 WORKDIR /app
 COPY package.json .
 COPY /app/static/src .
