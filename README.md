@@ -57,7 +57,7 @@ hiking_app/
 │
 ├── .github/
 │ └── workflows/
-│ └── google-cloudrun-docker.yml
+│       └── google-cloudrun-docker.yml
 │
 ├── app.py
 ├── requirements.txt
