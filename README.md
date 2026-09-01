@@ -30,11 +30,12 @@ Users enter the distance and ascent of a route, and the application calculates t
 
 ## Features
 
-- Takes input of route distance and total ascent, and calculates average gradient and overall difficulty rating
-- Preserves submitted values when displaying results
+- Takes input of route distance and total ascent, and calculates average gradient and overall difficulty rating.
+- Preserves submitted values when displaying results.
 
 ## Application Structure
 
+```
 hiking_app/
 │
 ├── app/
@@ -65,13 +66,12 @@ hiking_app/
 ├── .gitignore
 ├── .dockerignore
 └── README.md
+```
 
 - app/ contains the flask application, including routes, forms, templates and configuration.
 - calculation/ contains the hiking calculation logic separately from the Flask application.
 - tests/ contains automated tests for the application.
 - .github/workflows/ contains the GitHub Actions workflow used to build and deploy the application.
-
-## Run Application Locally
 
 ## Testing
 
@@ -91,6 +91,7 @@ python -m pytest
 
 ## Deployment Architecture
 
+```
 GitHub
 │
 │ push to main
@@ -114,6 +115,7 @@ Cloud Run
 │
 ▼
 Live application
+```
 
 GitHub Actions automatically builds the Docker image when changes are pushed to the main branch. The image is pushed to Google Artifact Registry and deployed to Google Cloud Run.
 
