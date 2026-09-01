@@ -41,13 +41,13 @@ hiking_app/
 ├── app/
 │ ├── static/
 │ ├── templates/
-│ ├── **init**.py
+│ ├── __init__.py
 │ ├── config.py
 │ ├── forms.py
 │ └── routes.py
 │
 ├── calculation/
-│ ├── **init**.py
+│ ├── __init__.py
 │ └── utils.py
 │
 ├── tests/
@@ -134,9 +134,6 @@ Planned features:
 - Improve hiking difficulty estimation using route data
 - Add a development environment separate from production
 - Add a custom domain to the production application
-
-And potentially later:
-
 - Route visualisation
 - Map integration
 - User accounts
