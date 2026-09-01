@@ -35,7 +35,7 @@ Users enter the distance and ascent of a route, and the application calculates t
 
 ## Application Structure
 
-```
+```text
 hiking_app/
 │
 ├── app/
@@ -91,7 +91,7 @@ python -m pytest
 
 ## Deployment Architecture
 
-```
+```text
 GitHub
 │
 │ push to main
